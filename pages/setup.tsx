@@ -2,45 +2,27 @@ import { useApp, Wrapper } from "@graphcms/app-sdk-react";
 import { Box, Button, Text, Heading, Stack } from "@hygraph/baukasten";
 
 function SetupElement() {
-    const { installation } = useApp();
-    if (installation.status === "COMPLETED") {
-        return <Configure />;
-    }
     return <Install />;
 }
 
 function Install() {
-    const { updateInstallation } = useApp();
+    const { updateInstallation, installation } = useApp();
+    const buttonLabel =
+        installation.status === "COMPLETED" ? "Update" : "Install";
     return (
         <Stack gap="12">
             <Box>
-                <Heading>Hygraph Boilerplate App</Heading>
-                <Text>This is an example app</Text>
+                <Heading>ChatSEO by iana.ai</Heading>
+                <Text>
+                    ChatSEO is a revolutionary AI chatbot assistant for SEO and
+                    digital marketing.
+                </Text>
                 <Button
                     onClick={() =>
                         updateInstallation({ status: "COMPLETED", config: {} })
                     }
                 >
-                    Install App
-                </Button>
-            </Box>
-        </Stack>
-    );
-}
-
-function Configure() {
-    const { updateInstallation } = useApp();
-    return (
-        <Stack gap="12">
-            <Box>
-                <Heading>Hygraph Boilerplate App</Heading>
-                <Text>This is an example app</Text>
-                <Button
-                    onClick={() =>
-                        updateInstallation({ status: "COMPLETED", config: {} })
-                    }
-                >
-                    Save
+                    {buttonLabel}
                 </Button>
             </Box>
         </Stack>

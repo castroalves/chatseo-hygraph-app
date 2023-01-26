@@ -1,15 +1,9 @@
 import { useFormSidebarExtension, Wrapper } from "@graphcms/app-sdk-react";
-import { Button, Flex } from "@hygraph/baukasten";
+import { Button, Flex, Inline, Stack, TextArea } from "@hygraph/baukasten";
+import { useEffect, useRef } from "react";
 
 function SidebarElement() {
-    const { installation } = useFormSidebarExtension();
-    return (
-        <Flex>
-            <Button flex="1" onClick={() => alert("Hello!")}>
-                Click Me
-            </Button>
-        </Flex>
-    );
+    return <Flex>Your sidebar here</Flex>;
 }
 
 export default function Sidebar() {
